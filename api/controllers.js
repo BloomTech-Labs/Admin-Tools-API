@@ -48,10 +48,10 @@ const getAllPrs = (req, res) => {
 
 const postPr = (req, res, done) => {
   const PR = req.body.pull_request;
-  const user = { login, avatar_url } = PR.user;
-  const { url, state, title, createdAt, id } = PR;
-  const newPr = { user: { login, avatar_url }, url, state, title, createdAt, id };
   if (PR) {
+    const user = { login, avatar_url } = PR.user;
+    const { url, state, title, createdAt, id } = PR;
+    const newPr = { user: { login, avatar_url }, url, state, title, createdAt, id };
     PullRequest.find({id: id}, (err, objectFound) => {
       if (err) {
         // if error is found handle it.
