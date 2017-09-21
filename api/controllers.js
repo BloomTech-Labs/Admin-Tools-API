@@ -64,6 +64,9 @@ const postPr = (req, res, done) => {
         handleUpdatePullRequest(id, newPr, res, done);
       }
     });
+  } else {
+    res.status(200);
+    res.json({ 'Message: ': 'must be a test' });
   }
 };
 
