@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const server = require('./server');
 const secret = require('./secret');
 
+mongoose.Promise = global.Promise;
 mongoose.connect(
   `mongodb://ryan:${secret.secret}@ds147034.mlab.com:47034/ls-admin-tools`,
   { useMongoClient: true },

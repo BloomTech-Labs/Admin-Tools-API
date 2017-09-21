@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
   login: String,
-  avatarUrl: String,
+  avatar_url: String,
 });
 
 const PrSchema = new Schema({
@@ -11,6 +11,7 @@ const PrSchema = new Schema({
   state: String,
   title: String,
   createdAt: Date,
+  id: Number,
   user: UserSchema,
 });
 
