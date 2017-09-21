@@ -51,19 +51,21 @@ const postPr = (req, res, done) => {
   const user = { login, avatar_url } = PR.user;
   const { url, state, title, createdAt, id } = PR;
   const newPr = { user: { login, avatar_url }, url, state, title, createdAt, id };
-  PullRequest.find({id: id}, (err, objectFound) => {
-    if (err) {
-      // if error is found handle it.
-      return SendStatusError(err, res, done);
-    }
-    if (objectFound.length === 0) {
-      handleUserOnSave(newPr, res, done);
-    } else {
-      const id = objectFound[0]._id;
-      handleUpdatePullRequest(id, newPr, res, done);
-    }
-  })
-}
+  if (PR) {
+    PullRequest.find({id: id}, (err, objectFound) => {
+      if (err) {
+        // if error is found handle it.
+        return SendStatusError(err, res, done);
+      }
+      if (objectFound.length === 0) {
+        handleUserOnSave(newPr, res, done);
+      } else {
+        const id = objectFound[0]._id;
+        handleUpdatePullRequest(id, newPr, res, done);
+      }
+    });
+  }
+};
 
 module.exports = {
   homeRoute,
