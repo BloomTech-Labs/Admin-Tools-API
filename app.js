@@ -1,7 +1,7 @@
 const server = require('./server');
-server.set('port', (process.env.PORT || 5000));
 
-server.listen(server.get('port'), (err) => {
+const port = server.get('port');
+server.listen(port, (err) => {
   if(err) throw new Error('Error running server', err);
-  console.log('Server listening on 5050');
+  console.log(`Server up on ${port}`);
 });
