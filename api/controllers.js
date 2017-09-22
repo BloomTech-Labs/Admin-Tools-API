@@ -35,7 +35,7 @@ const handleUpdatePullRequest = (id, item, res, done) => {
 };
 // CONTROLLERS: 
 const homeRoute = (req, res) => {
-  console.log('found it!')
+  console.log('found it!');
   res.json({'Success': 'You made it home!'});
 };
 
