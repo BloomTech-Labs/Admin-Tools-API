@@ -58,8 +58,10 @@ const postPr = (req, res, done) => {
         return SendStatusError(err, res, done);
       }
       if (objectFound.length === 0) {
+        // if PR doesn't exists save it.
         handleUserOnSave(newPr, res, done);
       } else {
+        // if PR exists we're going to just update it.
         const id = objectFound[0]._id;
         handleUpdatePullRequest(id, newPr, res, done);
       }
