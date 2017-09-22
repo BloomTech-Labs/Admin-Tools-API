@@ -1,5 +1,5 @@
 const db = {
-  URI: process.env.DB_URI || 'mongodb://phytertek:ryan1234@ds147884.mlab.com:47884/pr-testing'
+  URI: process.env.DB_URI || 'mongodb://ryan:ryan123@ds147034.mlab.com:47034/ls-admin-tools'
 };
 
 module.exports = {
