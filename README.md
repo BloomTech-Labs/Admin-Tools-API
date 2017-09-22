@@ -8,7 +8,6 @@
 
 ## Local Environment Set up
 * Todo:
-  * [] Figure out process for mLabs and multiple contributors.
   * [] Make test repo for adding in a Webhook. Webhooks will have to point to your ngrok server for local development. 
 * You'll need to make sure you have an Ngrok server up and running that points to your Node Server (localhost).
 * When changes are deployed live, the webhooks that need to POST to our API will need to be updated to the Live URL.
