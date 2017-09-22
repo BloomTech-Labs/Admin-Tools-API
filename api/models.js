@@ -9,7 +9,7 @@ const UserSchema = new Schema({
 const PrSchema = new Schema({
   url: String,
   state: String,
-  title: String,
+  name: String,
   createdAt: Date,
   id: Number,
   user: UserSchema,
