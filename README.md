@@ -25,3 +25,10 @@
 * Feature Request/Idea? Go ahead an open up an issue with the appropriate label. 
 
 ### This is how open sourced software is developed. Discussions about topics concerning technology choices or issues with the product need to be tracked in our Issue tracker here on Github.
+
+### We need to discuss how our Workflow is organized.
+
+### Extra curricular Todos: 
+  * [] Documentation of all endpoints.
+  * [] Linter Rules set in place.
+  * [] Set up test suite.
