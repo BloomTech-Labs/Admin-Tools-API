@@ -20,13 +20,12 @@ const handleUserOnSave = (newPr, res, done) => {
 };
 
 const handleUpdatePullRequest = (id, item, res, done) => {
-  console.log(item[0]);
   PullRequest.findByIdAndUpdate(
       id, 
       item, 
       (error, updatedPr) => {
-        console.log("ERROR: ", error);
-        console.log("updatedPr: ", updatedPr);
+        // console.log("ERROR: ", error);
+        // console.log("updatedPr: ", updatedPr);
         if (error) {
           return SendStatusError(error, res, done);
         }
@@ -40,6 +39,7 @@ const homeRoute = (req, res) => {
 };
 
 const getAllPrs = (req, res) => {
+  // console.log('GET ALL PRS');
   PullRequest.find({}, (err, pullRequests) => {
     if (err) return SendStatusError(err, res);
     res.json(pullRequests);
@@ -52,10 +52,12 @@ const clearClosedPrs = (req, res) => {
 
 const postPr = (req, res, done) => {
   const PR = req.body.pull_request;
+  console.log(req.body);
+  const { name } = req.body.repository;
   if (PR) {
     const user = { login, avatar_url } = PR.user;
-    const { url, state, title, createdAt, id } = PR;
-    const newPr = { user: { login, avatar_url }, url, state, title, createdAt, id };
+    const { html_url, state, createdAt, id } = PR;
+    const newPr = { user: { login, avatar_url }, html_url, state, name, createdAt, id };
     PullRequest.find({id: id}, (err, objectFound) => {
       if (err) {
         // if error is found handle it.
