@@ -10,7 +10,7 @@ All of the Settings for the project lives in the 'config' folder and separated i
 3. **mongoose.js**: exports a function that takes one parameter, the config object. It uses the mongoose package and the config object to connect to a mongodb instance.
 4. **routes.js**:  exports a function that takes the express server and uses the [route](https://expressjs.com/en/guide/routing.html#app-route) method to redirect requests to the API to its corresponding App in our **API**...
 
-###/api
+### /api
 Each subfolder in this folder is like its own App. References to a specific folder is responded to with either the index.js file, or a specific file in that folder. The index.js file creates an express.Router instance where we can interact with and add middleware to an app. 
 
 Each subfolder also has a app.controller.js file named according to that folder's purpose. Each controller file exports a function that returns an object of functions. Make sure endpoints in the index.js file have a corresponding function in this object. Or else we will encounter an error.
@@ -18,6 +18,8 @@ Each subfolder also has a app.controller.js file named according to that folder'
 Finally, and probably most importantly, each subfolder also has an app.model.js file. This is the mongoose model for the specific app/subfolder you're in. This is the model that the functions in the controller file will be acting on... (Creating, Reading, Updating, Deleting)
 
 *utils* and *home* subfolders may or may not need a model.
+
+==============================================================================================
 
 
 This structure allows the app to scale and grow easily now that all logic is modular for the most part.
