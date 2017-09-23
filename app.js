@@ -1,9 +1,8 @@
 require('dotenv').config();
 
 const express = require('express');
-const mongoose = require('mongoose');
-const env = process.env.NODE_ENV || 'development';
 
+const env = process.env.NODE_ENV || 'development';
 const server = express();
 const config = require('./config/config')[env];
 

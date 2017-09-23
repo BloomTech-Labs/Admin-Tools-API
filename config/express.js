@@ -1,5 +1,4 @@
-const   express = require('express');
-        logger = require('morgan');
+const   logger = require('morgan');
         bodyParser = require('body-parser');
         cors = require('cors');
 

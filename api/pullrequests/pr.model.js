@@ -22,6 +22,10 @@ const PrSchema = new Schema({
     id: Number,
     diffComments: [diffCommentSchema],
     user: UserSchema,
+    created: {
+        type: Date,
+        default: Date.now
+    }
 });
 
 module.exports = mongoose.model('Pullrequest', PrSchema);
