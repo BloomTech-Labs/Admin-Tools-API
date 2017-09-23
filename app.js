@@ -1,23 +1,22 @@
 require('dotenv').config();
+
+const express = require('express');
 const mongoose = require('mongoose');
-const server = require('./server');
-const secret = require('./secret');
+const env = process.env.NODE_ENV || 'development';
 
-const dbConfig = require('./config').db;
+const server = express();
+const config = require('./config/config')[env];
 
-mongoose.Promise = global.Promise;
-mongoose.connect(
-  dbConfig.URI,
-  { useMongoClient: true },
-  (err) => {
-    if (err) throw new Error(err);
-    console.log('connected to mongo');
-  }
-);
+// express setup
+require('./config/express')(server, config);
 
-/* eslint no-console: 0 */
-const port = server.get('port');
-server.listen(port, (err) => {
+// db setup
+require('./config/mongoose')(config);
+
+// routes 
+require('./config/routes')(server);
+
+server.listen(config.port, (err) => {
   if (err) throw new Error('Error running server', err);
-  console.log(`Server up on ${port}`);
+  console.log(`Server up on ${config.port}`);
 });

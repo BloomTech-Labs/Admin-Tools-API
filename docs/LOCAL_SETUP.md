@@ -1,28 +1,39 @@
 ## Setting up your local dev enviroment
 
+**ngrok**
 1. Signup and download ngrok -&gt; [https://ngrok.com/](https://ngrok.com/) 
 2. Be sure to grab your auth token from the dashboard page on the ngrok website, and run the command on your local machine after installing it.  The command will look like:  
     1.  ngrok authtoken 4oFkoTRRFoiBHjyb65Ndq_223s77WnpdDsQR4zKeQwm 
 
+**Branching**
 3. Create and checkout a new branch 
     1. git clone [https://github.com/Lambda-School-Labs/Admin-Tools-API.git](https://github.com/Lambda-School-Labs/Admin-Tools-API.git) 
     2. git branch {your name or github username} 
     3. git checkout -b {your name or github username} 
 
+**Dependencies**
 4. Install dependencies 
     1. npm install 
 
-5. Set your mongo db URI in the config.js file, either local or remote 
-    1. Local: mongodb://localhost/pr-testing 
-    2. mLab: mongodb://{username}:{password}@{mlab_acct}.mlab.com:{port}/pr-testing 
+**Environment variables**
+6. Create a .env file in the root directory and add at least the following variables:
+    1. DB_USER = {username}
+    2. DB_PW = {password}
 
-6. Start ngrok and point it to port 5000 
+**Database configuration // Mongodb**
+5. Set your mongo db with either local or remote URI, in the file: /config/config.js
+    1. For Local: uncomment local connection line, and comment the remote connection line.
+    2. For remote: comment the the local connection line, and ensure the local connection line is uncommented.
+
+## Starting server and populating with test data.
+
+1. Start ngrok and point it to port 5000 
     1. ngrok http 5000 
 
-7. Start local server 
+2. Start local server 
     1. Npm run start:dev 
 
-8. Create a new repository for testing  
+3. Create a new repository for testing  
     1. Go into the Settings tab 
     2. Click on the Webhooks link 
     3. Add webhook 
@@ -36,6 +47,5 @@
 
 Your development environment should be ready to go!
 
-  
 
 Note: Every time ngrok is restarted on your local machine, you will need to update the Payload URL in your webhook with the new forwarding address provided by ngrok
