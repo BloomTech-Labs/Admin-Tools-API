@@ -46,6 +46,10 @@ const getAllPrs = (req, res) => {
   });
 };
 
+const clearClosedPrs = (req, res) => {
+  PullRequest.remove({ state: 'closed'}, err => err ? SendStatusError(err, res) : res.status(200).send({ message: 'All closed PRs have been deleted.' }));
+}
+
 const postPr = (req, res, done) => {
   const PR = req.body.pull_request;
   if (PR) {
@@ -75,5 +79,6 @@ const postPr = (req, res, done) => {
 module.exports = {
   homeRoute,
   postPr,
+  clearClosedPrs,
   getAllPrs,
 };

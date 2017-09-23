@@ -1,3 +1,4 @@
 module.exports = {
-  secret: 'ryan123',
+  user: 'clervius',
+  secret: 'joram1234',
 };

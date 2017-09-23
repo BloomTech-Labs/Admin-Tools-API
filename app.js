@@ -4,7 +4,7 @@ const secret = require('./secret');
 
 mongoose.Promise = global.Promise;
 mongoose.connect(
-  `mongodb://ryan:${secret.secret}@ds147034.mlab.com:47034/ls-admin-tools`,
+  `mongodb://${secret.user}:${secret.secret}@ds147884.mlab.com:47884/pr-testing`,
   { useMongoClient: true },
   (err) => {
     if (err) throw new Error(err);
