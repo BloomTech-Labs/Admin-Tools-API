@@ -1,4 +1,3 @@
-FROM  ubuntu:16.04
 FROM  node:8.5
 # Copy contents into the gateway container
 ADD . /server
